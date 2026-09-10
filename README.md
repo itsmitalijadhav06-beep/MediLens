@@ -16,12 +16,14 @@ An AI-powered medical report analysis and OCR platform designed to extract, inte
 - **OCR Engine:** Tesseract.js / OCR Service
 - **Styling:** Modern CSS
 
-## Getting Started
+## System Architecture & Workflow
 
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- npm or yarn
+### 1. Client Layer (React Frontend)
+* **User Authentication:** Login and signup workflows.
+* **Document Upload:** Interface for uploading medical files and lab reports.
+* **Dashboard:** Interactive health visualizations, statistics, and parameter tracking.
+* **Reports:** Detailed views of analyzed records and historic data.
 
-### Installation
-
-1. Clone the repository:
+### 3. Data & Processing Layer
+* **MongoDB:** Document storage for user profiles, metadata, extracted clinical records, and structured lab metrics.
+* **OCR / AI Engine:** Optical character recognition and parsing services to digitize raw medical documents and parse clinical insights.
