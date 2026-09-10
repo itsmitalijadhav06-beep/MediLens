@@ -24,6 +24,12 @@ An AI-powered medical report analysis and OCR platform designed to extract, inte
 * **Dashboard:** Interactive health visualizations, statistics, and parameter tracking.
 * **Reports:** Detailed views of analyzed records and historic data.
 
-### 2. Data & Processing Layer
+### 2. Application Layer (Node.js + Express.js Backend)
+* **Auth Management:** Token validation and access control.
+* **Upload Handler:** Multipart file management and pipeline orchestration.
+* **Core APIs:** Endpoints serving dashboard analytics, user state, and reports.
+* **Report Processing:** Data extraction coordination and business logic execution.
+
+### 3. Data & Processing Layer
 * **MongoDB:** Document storage for user profiles, metadata, extracted clinical records, and structured lab metrics.
 * **OCR / AI Engine:** Optical character recognition and parsing services to digitize raw medical documents and parse clinical insights.
