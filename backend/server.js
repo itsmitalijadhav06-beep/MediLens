@@ -1,0 +1,33 @@
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const path = require("path");
+const connectDB = require("./config/db");
+const setupSwagger = require("./config/swagger");
+
+dotenv.config();
+connectDB();
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+// Mount Swagger Documentation & JSON spec
+setupSwagger(app);
+
+// Mount API routes
+app.use("/api/auth", require("./routes/authRoutes"));
+app.use("/api/reports", require("./routes/reportRoutes"));
+
+app.get("/health", (req, res) => {
+  res.json({ status: "MediLens API is active and healthy." });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+  console.log(`Swagger UI documentation available at: http://localhost:${PORT}/api-docs`);
+  console.log(`OpenAPI JSON spec available at: http://localhost:${PORT}/api-docs/swagger.json`);
+});
